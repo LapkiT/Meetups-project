@@ -1,0 +1,66 @@
+.logo > h1 {
+  font-family: "Workbench", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0;
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.logo-svg {
+  width: 10px;
+  height: 10px;
+}
+
+.logout {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: white;
+  background: none;
+  border: 1px solid white;
+  border-radius: 5px;
+  gap: 10px;
+  font-family: "Workbench", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0;
+}
+
+.logout:active {
+  color: chocolate;
+  border: 1px solid chocolate;
+}
+
+.header {
+  padding: 22px 0 22px 0;
+  background: rgb(44, 44, 44);
+}
+.navbar-link {
+  padding-left: 30px;
+  text-decoration: none;
+  color: white;
+  font-family: "Workbench", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "BLED" 0,
+    "SCAN" 0;
+  color: white;
+}
+
+.navbar-link:active {
+  color: chocolate;
+}
+
+.flex-row-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
