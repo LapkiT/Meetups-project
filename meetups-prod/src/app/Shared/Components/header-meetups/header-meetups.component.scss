@@ -19,7 +19,7 @@
 .logout {
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   color: white;
   background: none;
   border: 1px solid white;
@@ -42,6 +42,7 @@
   padding: 22px 0 22px 0;
   background: rgb(44, 44, 44);
 }
+
 .navbar-link {
   padding-left: 30px;
   text-decoration: none;
