@@ -4,3 +4,19 @@
   min-height: 100vh;
   background: rgb(30, 30, 30);
 }
+
+.add-task {
+  left: 88%;
+  top: 85%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  width: 130px;
+  height: 46px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px 0px rgba(62, 5, 4, 0.25);
+  background: rgb(0, 134, 151);
+}

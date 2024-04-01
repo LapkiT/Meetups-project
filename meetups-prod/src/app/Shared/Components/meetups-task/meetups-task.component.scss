@@ -1,4 +1,5 @@
 .tasks-container {
+  margin-top: 30px;
   box-sizing: border-box;
   border: 0.3px solid rgb(180, 180, 192);
   background: rgb(44, 44, 44);
@@ -7,9 +8,12 @@
 }
 
 .task-inforamation {
+  justify-content: space-between;
+  padding: 18px 0 15px 15px;
   grid-column: 1/3;
   display: flex;
   flex-direction: column;
+  min-height: 165px;
 }
 
 .header-text {
@@ -18,10 +22,114 @@
 }
 
 .header-text > h2 {
-  margin: 0
+  margin: 0;
+  /* title */
+  color: rgb(233, 233, 233);
+  font-family: 'Reboto', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 24px;
+}
+
+.header-text > span {
+  /* middle */
+  padding-top: 5px;
+  padding-left: 10px;
+  text-align: center;
+  color: rgb(184, 85, 38);
+  font-family: Open Sans;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+.text-info {
+  padding-top: 24px;
+  /* middle */
+  color: rgb(180, 180, 192);
+  font-family: Open Sans;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0;
+}
+
+.text-info > p {
+  margin: 0; /* Убираем внешний отступ */
+  -webkit-line-clamp: 2; /* Число отображаемых строк */
+  display: -webkit-box; /* Включаем флексбоксы */
+  -webkit-box-orient: vertical; /* Вертикальная ориентация */
+  overflow: hidden; /* Обрезаем всё за пределами блока */
 }
 
 .author-task {
+  order: 2; /* Будет отображаться последним */
+  text-align: center;
   align-items: center;
   display: flex;
+}
+
+.icon-author {
+  color: rgb(184, 85, 38);
+  width: 25px;
+  height: 25px;
+}
+
+.author-text {
+  /* middle */
+  color: rgb(233, 233, 233);
+  font-family: Open Sans;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: 0%;
+}
+
+.task-date {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.date-time {
+  display: flex;
+  flex-direction: column;
+  /* title */
+  color: rgb(233, 233, 233);
+  font-family: Cherry Bomb;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0%;
+}
+
+.time {
+  font-weight: 800;
+  font-family: 'Reboto', sans-serif;
+}
+
+.button-task-date {
+  display: flex;
+  gap: 10px;
+}
+
+.discraption-fun {
+  background: rgb(184, 85, 38);
+  width: 70px;
+  height: 50px;
+}
+
+.icon-discrapiton-fun {
+  font-size: 40px;
+}
+
+.agree-visited {
+  width: 160px;
+  height: 50px;
+  font-family: 'Reboto', sans-serif;
+  border-radius: 5px;
+  color: white;
+  box-shadow: 0px 4px 4px 0px rgba(62, 5, 4, 0.25);
+  background: rgb(76, 63, 120);
 }
