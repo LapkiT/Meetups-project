@@ -1,0 +1,62 @@
+<main class = "main-login">
+  <div class="container">
+    <div class="flex-container">
+      <h1 class = "h1-login">Login</h1>
+      <form [formGroup]="loginForm" (ngSubmit)="login()" action="" class="form-control login-container">
+
+        <input required
+               value="jim@dundermifflin.com"
+               formControlName="email"
+               placeholder="Login"
+               type="email"
+               class="email-input">
+        <span
+          class="error-text"
+          *ngIf="loginForm.touched && loginForm.get('email')?.value === ''"
+          >
+          Поле должно быть заполнено!
+        </span>
+        <span
+          class="error-text"
+          *ngIf="
+          loginForm.get('email')?.touched &&
+          loginForm.get('email')?.value !== '' &&
+          loginForm.get('email')?.invalid
+          ">
+          Некорректный адрес электронной почты
+        </span>
+        <input value="password"
+               formControlName="password"
+               placeholder="Password"
+               type="password"
+               class="password-input">
+        <span
+          class="error-text"
+          *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.value === ''"
+        >
+          Поле должно быть заполнено!
+        </span>
+        <input value="fio"
+               formControlName="fio"
+               placeholder="Fio"
+               type="text"
+               class="fio-input">
+        <span
+          class="error-text"
+          *ngIf="loginForm.touched && loginForm.get('fio')?.value === ''"
+        >
+          Поле должно быть заполнено!
+        </span>
+        <div class="button-container-login">
+          <a routerLink="register" class="question-reg">
+            Хотите создать<br> аккаунт?
+          </a>
+          <button class="log-in">
+            Log In
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</main>

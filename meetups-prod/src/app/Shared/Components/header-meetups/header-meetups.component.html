@@ -5,14 +5,14 @@
         <h1>MeetUps</h1>
       </div>
 
-      <nav class="navbar">
+      <nav *ngIf="userService.wasLogin" class="navbar">
         <a routerLink="allmeetups" routerLinkActive = "active-link" class="navbar-link">All meetups</a>
         <a routerLink="mymeetup" routerLinkActive = "active-link" class="navbar-link">My Meetups</a>
         <a routerLink="users" routerLinkActive = "active-link" class="navbar-link">Users</a>
       </nav>
 
-      <div class="logout-button">
-        <button class="logout">
+      <div *ngIf="userService.wasLogin" class="logout-button">
+        <button (click)="logout()" class="logout">
         <span class="material-symbols-outlined">move_item</span>
           LogOut
         </button>

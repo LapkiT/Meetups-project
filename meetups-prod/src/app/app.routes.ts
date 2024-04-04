@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 import {AllMeetupsPegesComponent} from "./Pages/all-meetups-peges/all-meetups-peges.component";
-import {LoginMeetupsComponent} from "./Shared/Components/login-meetups/login-meetups.component";
+import {LoginMeetupsComponent} from "./Pages/login-meetups/login-meetups.component";
 import {AddingTasksComponent} from "./Shared/Components/adding-tasks/adding-tasks.component";
-import {RegisterMeetupsComponent} from "./Shared/Components/register-meetups/register-meetups.component";
+import {RegisterMeetupsComponent} from "./Pages/register-meetups/register-meetups.component";
 import {UsersMeetupsAllComponent} from "./Pages/users-meetups-all/users-meetups-all.component";
 
 export const routes: Routes = [
