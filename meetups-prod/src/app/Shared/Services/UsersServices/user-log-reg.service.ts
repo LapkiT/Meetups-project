@@ -23,6 +23,7 @@ export class UserLogRegService {
         }),
         map((res: LoginResponse): User => this.parseJwt(res.token)),
         tap((user: User) => {
+          this.User = user;
         }),
         catchError((): Observable<null> => {
           alert("Ошибка")
@@ -47,7 +48,7 @@ export class UserLogRegService {
 
   public checkToken(): void {
     const token = localStorage.getItem(this.JWT_TOKEN);
-    this.wasLogin = !!token; // This will set wasLogin to true if token exists, otherwise to false
+    this.wasLogin = !!token;
     if (token) {
       this.User = this.parseJwt(token);
     }
