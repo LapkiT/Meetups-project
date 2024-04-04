@@ -7,7 +7,7 @@
         </div>
 
         <div class="text-info">
-          <p>
+          <p [class]="isListExpanded ? 'visible-content' : 'hidden-content'">
             А здесь я ещё более подробно напишу об том, отб этом.
             О том, об этом. О том, об этом.
             О том, об этом. О том, об этом.
@@ -26,7 +26,25 @@
             О том, об этом. О том, об этом.
            О том, об этом.
            А здесь я ещё более подробно напишу об том, отб этом.
-         </p>
+
+            Целевая аудитория
+            Разрабы аналитики, и проч
+
+            Что надо знать?
+            1. Вот это
+            2. Вот это
+            3. Вот это
+            4. Вот это
+
+            Что будет?
+            вот этому научу
+            вот это расскажу
+            вот этому научу
+            вот этому расскажу
+
+            Почему надо обязательно прийти?
+            У меня красный пояс по C++
+          </p>
        </div>
     </div>
     <div class="author-task">
@@ -48,8 +66,8 @@
       <button class="agree-visited">
         Я пойду!
       </button>
-      <button class="discraption-fun">
-        <span class="material-symbols-outlined icon-discrapiton-fun">expand_less</span>
+      <button class="discraption-fun" (click)="toggleList()">
+        <span class="material-symbols-outlined icon-discrapiton-fun {{isListExpanded ? 'button-toggle' : ''}}">expand_less</span>
       </button>
     </div>
   </div>

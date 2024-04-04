@@ -55,11 +55,22 @@
 }
 
 .text-info > p {
+}
+
+.hidden-content {
   margin: 0; /* Убираем внешний отступ */
   -webkit-line-clamp: 2; /* Число отображаемых строк */
   display: -webkit-box; /* Включаем флексбоксы */
   -webkit-box-orient: vertical; /* Вертикальная ориентация */
   overflow: hidden; /* Обрезаем всё за пределами блока */
+}
+
+.visible-content {
+  margin: 0; /* Убираем внешний отступ */
+}
+
+.button-toggle {
+  transform: rotate(180deg);
 }
 
 .author-task {

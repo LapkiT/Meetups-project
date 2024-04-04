@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './meetups-task.component.scss'
 })
 export class MeetupsTaskComponent {
+  isListExpanded = false;
 
+  toggleList(): void {
+    this.isListExpanded = !this.isListExpanded;
+  }
 }
