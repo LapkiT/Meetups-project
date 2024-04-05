@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b1947abf-7678-4023-86c5-7bffa0b35dd4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Pages/all-meetups-peges/all-meetups-peges.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Pages/all-meetups-peges/all-meetups-peges.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Services/MeetupsServices/meetups-services.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Services/MeetupsServices/meetups-services.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Interfaces/meetups.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Interfaces/meetups.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Shared/interceptors/jwt.interceptor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Shared/interceptors/jwt.interceptor.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +76,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1712309618400</updated>
-      <workItem from="1712309619628" duration="4778000" />
+      <workItem from="1712309619628" duration="5610000" />
     </task>
     <servers />
   </component>
