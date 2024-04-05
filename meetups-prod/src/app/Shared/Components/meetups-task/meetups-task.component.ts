@@ -2,8 +2,6 @@ import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
 import {Meetup} from "../../Interfaces/meetups";
 import {MeetupsServicesService} from "../../Services/MeetupsServices/meetups-services.service";
 import {UserLogRegService} from "../../Services/UsersServices/user-log-reg.service";
-import {User} from "../../Interfaces/user";
-import {error} from "@angular/compiler-cli/src/transformers/util";
 import {Subscription} from "rxjs";
 import {NgIf} from "@angular/common";
 @Component({
@@ -15,7 +13,7 @@ import {NgIf} from "@angular/common";
   templateUrl: './meetups-task.component.html',
   styleUrl: './meetups-task.component.scss'
 })
-export class MeetupsTaskComponent implements OnInit, OnDestroy{
+export class MeetupsTaskComponent implements OnDestroy {
 
   token: string | null = localStorage.getItem('jwt_token');
   isListExpanded = false;
@@ -70,10 +68,6 @@ export class MeetupsTaskComponent implements OnInit, OnDestroy{
 
   public isSubscribed(): boolean {
     return this.meetups.users.some(user => user.id === this.userService.userId);
-  }
-
-  ngOnInit() {
-
   }
 
   ngOnDestroy() {
