@@ -4,6 +4,8 @@ export interface logUser {
   fio: string
 }
 
+
+
 export interface LoginResponse {
   token: string;
 }

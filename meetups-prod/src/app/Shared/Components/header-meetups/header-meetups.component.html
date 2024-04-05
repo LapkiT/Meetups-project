@@ -8,7 +8,7 @@
       <nav *ngIf="userService.wasLogin" class="navbar">
         <a routerLink="allmeetups" routerLinkActive = "active-link" class="navbar-link">All meetups</a>
         <a routerLink="mymeetup" routerLinkActive = "active-link" class="navbar-link">My Meetups</a>
-        <a routerLink="users" routerLinkActive = "active-link" class="navbar-link">Users</a>
+        <a *ngIf="userService.userRole" routerLink="users" routerLinkActive = "active-link" class="navbar-link">Users</a>
       </nav>
 
       <div *ngIf="userService.wasLogin" class="logout-button">

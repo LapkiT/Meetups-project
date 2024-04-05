@@ -1,5 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {LoginResponse, logUser, RegistrationResponse, User} from "../../Interfaces/user";
+import { LoginResponse, logUser, RegistrationResponse, User} from "../../Interfaces/user";
 import {catchError, map, Observable, of, tap} from "rxjs";
 import {environment} from "../../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
@@ -11,6 +11,7 @@ export class UserLogRegService {
   private readonly JWT_TOKEN = 'jwt_token'
   private http = inject(HttpClient);
   public wasLogin: boolean | null = null;
+  public userRole: boolean | null = null;
   private User: User | null = null;
   public login(user: logUser): Observable<User | null> {
     return this.http.post<LoginResponse>(environment.backendOrigin + '/auth/login', user)
@@ -23,6 +24,7 @@ export class UserLogRegService {
         }),
         map((res: LoginResponse): User => this.parseJwt(res.token)),
         tap((user: User) => {
+          this.userRole = user.roles[0].name == "ADMIN" ? true : false;
         }),
         catchError((): Observable<null> => {
           alert("Ошибка")
@@ -47,9 +49,11 @@ export class UserLogRegService {
 
   public checkToken(): void {
     const token = localStorage.getItem(this.JWT_TOKEN);
-    this.wasLogin = !!token; // This will set wasLogin to true if token exists, otherwise to false
+    this.wasLogin = !!token; 
     if (token) {
       this.User = this.parseJwt(token);
+      this.userRole = this.User.roles[0].name == "ADMIN" ? true : false;
+      console.log(this.userRole)
     }
   }
 
