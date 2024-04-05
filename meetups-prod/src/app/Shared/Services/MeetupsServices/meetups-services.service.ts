@@ -8,13 +8,13 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class MeetupsServicesService {
-  private meetups!: Meetup[];
+  public meetups: Meetup[] = [];
   private httpClient = inject(HttpClient)
 
   public httpMeetupsAll(): Observable<Meetup[]> {
     return this.httpClient.get<Meetup[]>(environment.backendOrigin + "/meetup").pipe(
       tap((res: Meetup[]) => {
-        console.log(res)
+        this.meetups = res;
       })
     )
   }

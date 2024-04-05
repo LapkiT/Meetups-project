@@ -1,10 +1,6 @@
 <main class = "main-all-meetups">
   <div class="container">
-    <app-meetups-task></app-meetups-task>
-    <app-meetups-task></app-meetups-task>
-    <app-meetups-task></app-meetups-task>
-    <app-meetups-task></app-meetups-task>
-    <app-meetups-task></app-meetups-task>
+    <app-meetups-task *ngFor= "let meetup of meetupServices.meetups" [meetups]="meetup"/>
   </div>
   <a href="addtask" class="add-task">+</a>
 </main>

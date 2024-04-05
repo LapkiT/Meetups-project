@@ -2,65 +2,43 @@
   <div class="task-inforamation">
     <div class="obertka">
         <div class="header-text">
-          <h2>Angular vs React</h2>
-          <span>321 подписчик</span>
+          <h2>{{meetups.name}}</h2>
+          <span>{{meetups.users.length}} подписчик</span>
         </div>
 
         <div class="text-info">
           <p [class]="isListExpanded ? 'visible-content' : 'hidden-content'">
-            А здесь я ещё более подробно напишу об том, отб этом.
-            О том, об этом. О том, об этом.
-            О том, об этом. О том, об этом.
-            О том, об этом. О том, об этом.
-            О том, об этом.
-            А здесь я ещё более подробно напишу об том, отб этом.
-            А здесь я ещё более подробно напишу об том, отб этом.
-            О том, об этом. О том, об этом.
-            О том, об этом. О том, об этом.
-            О том, об этом. О том, об этом.
-            О том, об этом.
-            А здесь я ещё более подробно напишу об том, отб этом.
-            А здесь я ещё более подробно напишу об том, отб этом.
-            О том, об этом. О том, об этом.
-            О том, об этом. О том, об этом.
-            О том, об этом. О том, об этом.
-           О том, об этом.
-           А здесь я ещё более подробно напишу об том, отб этом.
+            {{meetups.description}}
+            <br>
+            <span style="font-size: 25px; color: cornsilk">Целевая аудитория</span><br>
+            {{meetups.target_audience}}
+            <br>
+            <span style="font-size: 25px; color: cornsilk">Что надо знать?</span><br>
+            {{meetups.need_to_know}}
+            <br>
+            <span style="font-size: 25px; color: cornsilk">Что будет?</span><br>
+            {{meetups.will_happen}}<br>
 
-            Целевая аудитория
-            Разрабы аналитики, и проч
-
-            Что надо знать?
-            1. Вот это
-            2. Вот это
-            3. Вот это
-            4. Вот это
-
-            Что будет?
-            вот этому научу
-            вот это расскажу
-            вот этому научу
-            вот этому расскажу
-
-            Почему надо обязательно прийти?
-            У меня красный пояс по C++
+            <span style="font-size: 25px; color: cornsilk">Что надо знать?</span><br>
+            {{meetups.reason_to_come}}
           </p>
        </div>
     </div>
     <div class="author-task">
       <span class="material-symbols-outlined icon-author">person_4</span>
-      <span class = "author-text">Александр Козаченко</span>
+      <span class = "author-text">{{this.meetups.owner.fio}}</span>
     </div>
   </div>
 
   <div class="task-date">
     <p class="date-time">
       <time class="time">
-        14.08.22 13:00
+        {{datePipeFin(this.meetups.time)}}
       </time>
       <span class="discruption-time">
-        Переговорная 14
+        Локация: {{this.meetups.location}}
       </span>
+      <span class = "discruption-time">Продолжительность {{meetups.duration}}</span>
     </p>
     <div class="button-task-date">
       <button class="agree-visited">
