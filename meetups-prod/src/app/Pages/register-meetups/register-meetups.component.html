@@ -4,6 +4,7 @@
       <h1 class = "h1-reg">Register</h1>
       <form [formGroup]="registerForm" (ngSubmit)="register()" action="" class="form-control reg-container">
         <input
+          required
           placeholder="Login"
           type="email"
           class="email-input"
@@ -25,17 +26,19 @@
           Некорректный адрес электронной почты
         </span>
         <input
+          required
           placeholder="Password"
           type="password"
           class="password-inpu"
           formControlName="password">
         <span
           class="error-text"
-          *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.value === ''"
+          *ngIf="registerForm.touched && registerForm.get('password')?.value === ''"
         >
           Поле должно быть заполнено!
         </span>
         <input
+          required
           placeholder="Fio"
           type="text"
           class="fio-input"
@@ -50,7 +53,7 @@
           <a routerLink="" class="question-log">
             У меня уже есть<br> аккаунт.
           </a>
-          <button class="reg-in">
+          <button [disabled]="registerForm.invalid" class="reg-in">
             Reg In
           </button>
         </div>

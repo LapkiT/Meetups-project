@@ -12,8 +12,8 @@
                class="email-input">
         <span
           class="error-text"
-          *ngIf="loginForm.touched && loginForm.get('email')?.value === ''"
-          >
+          *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.value === ''"
+        >
           Поле должно быть заполнено!
         </span>
         <span
@@ -25,7 +25,8 @@
           ">
           Некорректный адрес электронной почты
         </span>
-        <input value="password"
+        <input required
+               value="password"
                formControlName="password"
                placeholder="Password"
                type="password"
@@ -36,7 +37,8 @@
         >
           Поле должно быть заполнено!
         </span>
-        <input value="fio"
+        <input required
+               value="fio"
                formControlName="fio"
                placeholder="Fio"
                type="text"
@@ -51,7 +53,7 @@
           <a routerLink="register" class="question-reg">
             Хотите создать<br> аккаунт?
           </a>
-          <button class="log-in">
+          <button [disabled]="loginForm.invalid" class="log-in">
             Log In
           </button>
         </div>

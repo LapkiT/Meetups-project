@@ -24,17 +24,14 @@ export class LoginMeetupsComponent implements OnDestroy{
   private subscription: Subscription | null = null;
 
   loginForm = new FormGroup({
-    email: new FormControl('jim@dundermifflin.com', [Validators.required, Validators.email]),
-    password: new FormControl('password', [Validators.required, Validators.minLength(6)]),
-    fio: new FormControl('fio', [Validators.required])
+      email: new FormControl('jim@dundermifflin.com', [Validators.required, Validators.email]),
+      password: new FormControl('password', [Validators.required]),
+      fio: new FormControl('fio', [Validators.required])
     }
   )
 
 
   public login() {
-    if (this.loginForm.invalid) {
-      return;
-    }
 
     this.loginUser = {
       email: this.loginForm.value.email,
