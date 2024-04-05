@@ -13,6 +13,7 @@ export class UserLogRegService {
   public wasLogin: boolean | null = null;
   public userRole: boolean | null = null;
   private User: User | null = null;
+  public userId!: number;
   public login(user: logUser): Observable<User | null> {
     return this.http.post<LoginResponse>(environment.backendOrigin + '/auth/login', user)
       .pipe(
@@ -49,15 +50,16 @@ export class UserLogRegService {
 
   public checkToken(): void {
     const token = localStorage.getItem(this.JWT_TOKEN);
-    this.wasLogin = !!token; 
+    this.wasLogin = !!token;
     if (token) {
       this.User = this.parseJwt(token);
       this.userRole = this.User.roles[0].name == "ADMIN" ? true : false;
+      this.userId = this.User.id;
       console.log(this.userRole)
     }
   }
 
-  private parseJwt(token: string): User {
+  public parseJwt(token: string): User {
     var base64Url = token.split('.')[1];
     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
     var jsonPayload = decodeURIComponent(

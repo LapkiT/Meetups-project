@@ -137,6 +137,7 @@
 }
 
 .agree-visited {
+  cursor: pointer;
   width: 160px;
   height: 50px;
   font-family: 'Reboto', sans-serif;
@@ -144,4 +145,15 @@
   color: white;
   box-shadow: 0px 4px 4px 0px rgba(62, 5, 4, 0.25);
   background: rgb(76, 63, 120);
+}
+
+.dont-visited {
+  cursor: pointer;
+  width: 160px;
+  height: 50px;
+  font-family: 'Reboto', sans-serif;
+  border-radius: 5px;
+  color: white;
+  box-shadow: 0px 4px 4px 0px rgba(62, 5, 4, 0.25);
+  background: rgb(137, 137, 148);
 }
