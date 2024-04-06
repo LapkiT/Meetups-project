@@ -26,7 +26,7 @@
                 formControlName="date"
               >
               <span *ngIf="formMeetups.touched && formMeetups.get('date')?.errors?.['required']">Обязательно заполните!</span>
-              <span *ngIf="formMeetups.get('date')?.errors?.['futureDate']">Дата не может быть в прошлом</span>
+              <span *ngIf="formMeetups.errors?.['dateTimeInvalid']">Дата не может быть в прошлом</span>
             </div>
           </label>
           <label class="name-text">
@@ -37,7 +37,7 @@
                 class="time-input"
                 formControlName="time_code">
               <span *ngIf="formMeetups.touched && formMeetups.get('time_code')?.errors?.['required']">Обязательно заполните!</span>
-              <span *ngIf="formMeetups.get('time_code')?.errors?.['timeInvalid']">Время не может быть в прошлом</span>
+              <span *ngIf="formMeetups.errors?.['dateTimeInvalid']">Время не может быть в прошлом</span>
             </div>
           </label>
         </div>

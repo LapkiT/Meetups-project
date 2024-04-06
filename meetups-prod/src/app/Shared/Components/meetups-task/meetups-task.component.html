@@ -52,7 +52,7 @@
       <button *ngIf="isOwner()" (click)="deleteMeetup(meetups.id)"  class="deleteMeetup">
         Удалить
       </button>
-      <button *ngIf="isOwner()" class = "editMeetup">
+      <button (click)="editMeetup()" *ngIf="isOwner()" class = "editMeetup">
         Редактировать
       </button>
       <button class="discraption-fun" (click)="toggleList()">

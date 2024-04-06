@@ -1,6 +1,6 @@
-import {inject, Injectable, OnInit} from '@angular/core';
-import {CreateBody, Meetup} from "../../Interfaces/meetups";
-import {BehaviorSubject, map, Observable, tap} from "rxjs";
+import {inject, Injectable} from '@angular/core';
+import { CreateBody, Meetup } from "../../Interfaces/meetups";
+import { map, Observable, tap} from "rxjs";
 import {environment} from "../../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {UserLogRegService} from "../UsersServices/user-log-reg.service";
@@ -12,7 +12,6 @@ export class MeetupsServicesService {
   public meetups: Meetup[] = [];
   public userService = inject(UserLogRegService);
   private httpClient = inject(HttpClient);
-  public editingMeetup: BehaviorSubject<Meetup | null> = new BehaviorSubject<Meetup | null>(null);
 
 
   public httpMeetupsAll(): Observable<Meetup[]> {
@@ -34,9 +33,6 @@ export class MeetupsServicesService {
     )
   }
 
-  public setEditingMeetup(meetup: Meetup): void {
-    this.editingMeetup.next(meetup);
-  }
 
   public httpMeetupUnSub(idMeetup: number, idUser: number ): Observable<Meetup> {
     return this.httpClient.delete<Meetup>(environment.backendOrigin + "/meetup", {

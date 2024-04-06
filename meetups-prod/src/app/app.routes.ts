@@ -5,6 +5,7 @@ import {AddingTasksComponent} from "./Shared/Components/adding-tasks/adding-task
 import {RegisterMeetupsComponent} from "./Pages/register-meetups/register-meetups.component";
 import {UsersMeetupsAllComponent} from "./Pages/users-meetups-all/users-meetups-all.component";
 import {MyMeetupsComponent} from "./Pages/my-meetups/my-meetups.component";
+import {EditMeetupsComponent} from "./Shared/Components/edit-meetups/edit-meetups.component";
 
 export const routes: Routes = [
   {path: "allmeetups", component: AllMeetupsPegesComponent},
@@ -12,5 +13,6 @@ export const routes: Routes = [
   {path: "", component: LoginMeetupsComponent},
   {path: "register", component: RegisterMeetupsComponent},
   {path: "users", component: UsersMeetupsAllComponent},
-  {path: "mymeetups", component: MyMeetupsComponent}
+  {path: "mymeetups", component: MyMeetupsComponent},
+  {path: 'edit/:id', component: EditMeetupsComponent}
 ];

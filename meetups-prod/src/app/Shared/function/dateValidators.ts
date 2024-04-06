@@ -1,41 +1,29 @@
-import {AbstractControl, ValidationErrors, ValidatorFn} from "@angular/forms";
-
-export function futureDateValidator(): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-    if (!control.value) {
-      return null;
-    }
-
-    const selectedDate = new Date(control.value);
-    const currentDate = new Date();
-    currentDate.setHours(0, 0, 0, 0);
-
-    return selectedDate < currentDate ? { 'futureDate': true } : null;
-  };
-}
-
-export function timeValidator(): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-    const timeValue = control.value;
-    if (!timeValue) return null;
+import {AbstractControl, ValidationErrors} from "@angular/forms";
 
 
-    const currentDate = new Date();
-    const currentTime = `${currentDate.getHours()}:${currentDate.getMinutes()}`;
+export function dateTimeInvalid(control: AbstractControl): ValidationErrors | null {
+  const dateControl = control.get('date');
+  const timeControl = control.get('time_code');
+  if (!dateControl || !timeControl) {
+    return null; // или возвращаем ошибку, если требуется
+  }
+
+  const dateValue = dateControl.value;
+  const timeValue = timeControl.value;
 
 
-    const currentTimeInMinutes = timeToMinutes(currentTime);
-    const selectedTimeInMinutes = timeToMinutes(timeValue);
-
-    if (selectedTimeInMinutes < currentTimeInMinutes && currentDate.toDateString() === new Date().toDateString()) {
-      return { 'timeInvalid': true };
-    }
-
+  if (!dateValue || !timeValue) {
     return null;
-  };
+  }
+
+  const selectedDateTime = new Date(`${dateValue}T${timeValue}`);
+  const currentDateTime = new Date();
+
+
+  if (selectedDateTime < currentDateTime) {
+    return { dateTimeInvalid: true };
+  }
+
+  return null;
 }
 
-function timeToMinutes(time: string): number {
-  const [hours, minutes] = time.split(':').map(Number);
-  return hours * 60 + minutes;
-}

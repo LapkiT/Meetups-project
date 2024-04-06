@@ -10,7 +10,7 @@ import {MeetupsServicesService} from "../../Services/MeetupsServices/meetups-ser
 import {Subscription} from "rxjs";
 import {CreateBody} from "../../Interfaces/meetups";
 import {NgIf} from "@angular/common";
-import {futureDateValidator, timeValidator} from "../../function/dateValidators";
+import {dateTimeInvalid} from "../../function/dateValidators";
 
 @Component({
   selector: 'app-adding-tasks',
@@ -29,18 +29,19 @@ export class AddingTasksComponent implements OnDestroy{
 
   private creationSubscription: Subscription | null = null;
 
+
   public formMeetups = new FormGroup({
     name: new FormControl("", [Validators.required]),
     description: new FormControl("", [Validators.required]),
-    time_code: new FormControl("", [Validators.required, timeValidator()]),
-    date: new FormControl('', [Validators.required, futureDateValidator()]),
+    time_code: new FormControl("", [Validators.required]),
+    date: new FormControl('', [Validators.required]),
     duration: new FormControl(0,  [Validators.required, Validators.min(30), Validators.max(120)]),
     location: new FormControl("", [Validators.required]),
     target_audience: new FormControl("", [Validators.required]),
     need_to_know: new FormControl("", [Validators.required]),
     will_happen: new FormControl("", [Validators.required]),
     reason_to_come: new FormControl("", [Validators.required])
-  })
+  }, { validators: dateTimeInvalid })
 
   submitForm() {
     const formData = this.formMeetups.getRawValue();

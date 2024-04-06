@@ -8,10 +8,13 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/adding-tasks/adding-tasks.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/adding-tasks/adding-tasks.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/adding-tasks/adding-tasks.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/adding-tasks/adding-tasks.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/edit-meetups/edit-meetups.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/edit-meetups/edit-meetups.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/edit-meetups/edit-meetups.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/edit-meetups/edit-meetups.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/meetups-task/meetups-task.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/meetups-task/meetups-task.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/meetups-task/meetups-task.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/meetups-task/meetups-task.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/meetups-task/meetups-task.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/meetups-task/meetups-task.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Services/MeetupsServices/meetups-services.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Services/MeetupsServices/meetups-services.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Shared/function/dateValidators.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Shared/function/dateValidators.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/app.routes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +99,7 @@
       <updated>1712309618400</updated>
       <workItem from="1712309619628" duration="29070000" />
       <workItem from="1712390178239" duration="8679000" />
-      <workItem from="1712407026520" duration="16493000" />
+      <workItem from="1712407026520" duration="29709000" />
     </task>
     <servers />
   </component>

@@ -4,6 +4,7 @@ import {MeetupsServicesService} from "../../Services/MeetupsServices/meetups-ser
 import {UserLogRegService} from "../../Services/UsersServices/user-log-reg.service";
 import {Subscription} from "rxjs";
 import {NgIf} from "@angular/common";
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-meetups-task',
   standalone: true,
@@ -15,8 +16,10 @@ import {NgIf} from "@angular/common";
 })
 export class MeetupsTaskComponent implements OnDestroy {
 
-  token: string | null = localStorage.getItem('jwt_token');
   isListExpanded = false;
+
+  private router = inject(Router)
+
   userService = inject(UserLogRegService)
   public meetupsService = inject(MeetupsServicesService);
 
@@ -83,6 +86,10 @@ export class MeetupsTaskComponent implements OnDestroy {
       },
       error: err => console.error(err)
     });
+  }
+
+  public editMeetup() {
+      this.router.navigate([`edit/${this.meetups.id}`]);
   }
 
   ngOnDestroy() {
