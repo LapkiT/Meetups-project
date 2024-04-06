@@ -1,6 +1,6 @@
 import {inject, Injectable, OnInit} from '@angular/core';
 import {CreateBody, Meetup} from "../../Interfaces/meetups";
-import { map, Observable, tap} from "rxjs";
+import {BehaviorSubject, map, Observable, tap} from "rxjs";
 import {environment} from "../../../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {UserLogRegService} from "../UsersServices/user-log-reg.service";
@@ -12,6 +12,8 @@ export class MeetupsServicesService {
   public meetups: Meetup[] = [];
   public userService = inject(UserLogRegService);
   private httpClient = inject(HttpClient);
+  public editingMeetup: BehaviorSubject<Meetup | null> = new BehaviorSubject<Meetup | null>(null);
+
 
   public httpMeetupsAll(): Observable<Meetup[]> {
     return this.httpClient.get<Meetup[]>(environment.backendOrigin + "/meetup").pipe(
@@ -30,6 +32,10 @@ export class MeetupsServicesService {
         this.meetups = this.meetups.map(m => m.id === res.id ? res : m)
       }),
     )
+  }
+
+  public setEditingMeetup(meetup: Meetup): void {
+    this.editingMeetup.next(meetup);
   }
 
   public httpMeetupUnSub(idMeetup: number, idUser: number ): Observable<Meetup> {
@@ -72,6 +78,16 @@ export class MeetupsServicesService {
     return this.httpClient.post<Meetup>(urlToFetch, body);
   }
 
+  public editMeetup(
+    id: number,
+    meetupInfo: CreateBody
+  ): Observable<Meetup | never> {
+
+    const body = this.getCreateMeetupRequestBody(meetupInfo);
+
+    return this.httpClient.put<Meetup>(environment.backendOrigin+`/meetup/${id}`, body);
+  }
+
   private getCreateMeetupRequestBody(meetupInfo: CreateBody) {
     const camelToSnakeCase = (str: string) =>
       str.replace(/[A-Z]/g, (letter) => `_${letter.toLowerCase()}`);
@@ -85,5 +101,4 @@ export class MeetupsServicesService {
 
     return Object.fromEntries(bodyEntries);
   }
-
 }

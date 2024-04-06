@@ -52,6 +52,9 @@
       <button *ngIf="isOwner()" (click)="deleteMeetup(meetups.id)"  class="deleteMeetup">
         Удалить
       </button>
+      <button *ngIf="isOwner()" class = "editMeetup">
+        Редактировать
+      </button>
       <button class="discraption-fun" (click)="toggleList()">
         <span class="material-symbols-outlined icon-discrapiton-fun {{isListExpanded ? 'button-toggle' : ''}}">expand_less</span>
       </button>

@@ -1,0 +1,173 @@
+.form-container {
+  padding-top: 20px;
+  max-width: 1220px;
+  margin: 0 auto 0 auto;
+}
+
+.add-meetups-h1 {
+  text-align: center;
+  font-family: "Workbench", sans-serif;
+}
+
+.adding-tasks {
+  min-height: 100vh;
+  background: rgb(30, 30, 30);
+}
+
+.adding-tasks-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.date-time-container {
+  flex-wrap: wrap;
+  gap: 30px;
+  display: flex;
+  flex-direction: row;
+
+  .date-input {
+    min-height: 50px;
+    min-width: 260px;
+  }
+  .time-input {
+    min-height: 50px;
+    min-width: 260px;
+  }
+}
+
+label {
+  display: flex;
+  span {
+    width: 120px;
+    color: rgb(233, 233, 233);
+    font-family: Open Sans;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 25px;
+  }
+
+  input {
+    /* DefaultColor */
+    background: rgb(67, 60, 60);
+    /* SecondaryColor */
+    border: 3px solid rgb(76, 63, 120);
+    border-radius: 3px;
+    color: rgb(213, 213, 230);
+    font-size: 25px;
+  }
+
+  textarea {
+    /* DefaultColor */
+    background: rgb(67, 60, 60);
+    /* SecondaryColor */
+    border: 3px solid rgb(76, 63, 120);
+    border-radius: 3px;
+    color: rgb(213, 213, 230);
+    font-size: 25px;
+  }
+}
+
+.name-text > .text-input {
+  min-width: 520px;
+  min-height: 50px;
+}
+
+.place-text {
+  .place-input {
+    min-width: 520px;
+    min-height: 50px;
+  }
+}
+
+.short-description-text {
+
+  .shor-description-input {
+    min-width: 840px;
+    min-height: 100px;
+  }
+}
+
+.long-text {
+  .long-description-input {
+    min-width: 840px;
+    min-height: 210px;
+  }
+}
+
+.targeted-text {
+  .targeted-input {
+    min-width: 840px;
+    min-height: 104px;
+  }
+}
+
+.know-text {
+  .know-input{
+    min-width: 840px;
+    min-height: 204px;
+  }
+}
+
+.tobe-text {
+  .tobe-input {
+    min-width: 840px;
+    min-height: 180px;
+  }
+}
+
+.when-text {
+  .when-input {
+    min-width: 840px;
+    min-height: 100px;
+  }
+}
+
+.btn-form {
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+  .delete-btn {
+    color: white;
+    width: 160px;
+    height: 50px;
+    border-radius: 5px;
+    /* BoxShadow */
+    box-shadow: 0px 4px 4px 0px rgba(62, 5, 4, 0.25);
+    /* AccentColor */
+    background: rgb(184, 85, 38);
+  }
+
+  .cancellation-btn {
+    width: 160px;
+    height: 50px;
+    border-radius: 5px;
+
+    /* BoxShadow */
+    box-shadow: 0px 4px 4px 0px rgba(62, 5, 4, 0.25);
+    /* PrimaryColor */
+    background: rgb(180, 180, 192);
+  }
+
+  .save-btn {
+    color: white;
+    border-radius: 5px;
+    width: 160px;
+    height: 50px;
+    /* BoxShadow */
+    box-shadow: 0px 4px 4px 0px rgba(62, 5, 4, 0.25);
+    /* SecondaryColor */
+    background: rgb(76, 63, 120);
+  }
+}
+
+.flex-container {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  span {
+    width: 100%;
+    color: chocolate;
+  }
+}

@@ -78,8 +78,8 @@ export class MeetupsTaskComponent implements OnDestroy {
 
   public deleteMeetup(meetupId: number) {
     this.meetupsService.HttpDeleteMeetup(meetupId).subscribe({
-      next: () => {
-
+      next: (res) => {
+        console.log(res)
       },
       error: err => console.error(err)
     });
@@ -91,6 +91,9 @@ export class MeetupsTaskComponent implements OnDestroy {
     }
     if (this.unsubscribeFromMeetupSubscription) {
       this.unsubscribeFromMeetupSubscription.unsubscribe()
+    }
+    if (this.deleteMeetupSubscription) {
+      this.deleteMeetupSubscription.unsubscribe();
     }
   }
 

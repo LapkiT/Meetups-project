@@ -1,33 +1,29 @@
-import {Component, inject, OnDestroy} from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators
-} from "@angular/forms";
+import {Component, inject, Input, OnDestroy} from '@angular/core';
+import {NgIf} from "@angular/common";
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {MeetupsServicesService} from "../../Services/MeetupsServices/meetups-services.service";
 import {Subscription} from "rxjs";
-import {CreateBody} from "../../Interfaces/meetups";
-import {NgIf} from "@angular/common";
 import {futureDateValidator, timeValidator} from "../../function/dateValidators";
+import {CreateBody} from "../../Interfaces/meetups";
 
 @Component({
-  selector: 'app-adding-tasks',
+  selector: 'app-edit-meetups',
   standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    NgIf
-  ],
-  templateUrl: './adding-tasks.component.html',
-  styleUrl: './adding-tasks.component.scss'
+    imports: [
+        NgIf,
+        ReactiveFormsModule
+    ],
+  templateUrl: './edit-meetups.component.html',
+  styleUrl: './edit-meetups.component.scss'
 })
-export class AddingTasksComponent implements OnDestroy{
+export class EditMeetupsComponent implements OnDestroy{
 
   private router = inject(Router)
   private meetupService = inject(MeetupsServicesService)
+  private editSubscription: Subscription | null = null;
 
-  private creationSubscription: Subscription | null = null;
+  @Input() meetup!: CreateBody;
 
   public formMeetups = new FormGroup({
     name: new FormControl("", [Validators.required]),
@@ -59,15 +55,6 @@ export class AddingTasksComponent implements OnDestroy{
       reason_to_come: formData.reason_to_come ?? ''
     };
 
-    this.creationSubscription = this.meetupService.createMeetup(dataToSend).subscribe({
-      next: (response) => {
-        console.log('Meetup created successfully', response);
-        this.router.navigate(['/mymeetups']);
-      },
-      error: (error) => {
-        console.error('Error creating meetup', error);
-      }
-    });
   }
 
   public backStr() {
@@ -75,7 +62,7 @@ export class AddingTasksComponent implements OnDestroy{
   }
 
   ngOnDestroy() {
-    if (this.creationSubscription) this.creationSubscription?.unsubscribe();
+    if (this.editSubscription) this.editSubscription?.unsubscribe();
   }
 
   protected readonly location = location;
