@@ -41,11 +41,16 @@
       <span class = "discruption-time">Продолжительность: {{meetups.duration}} мин</span>
     </p>
     <div class="button-task-date">
-      <button *ngIf="!isSubscribed()" (click)="subscribeMeetup()" class="agree-visited">
-        Я пойду!
-      </button>
-      <button *ngIf="isSubscribed()" (click)="unsubscribeFromMeetup()" class="dont-visited">
-        Я не пойду
+      <div class="btn-visited" *ngIf="!isOwner()">
+        <button *ngIf="!isSubscribed()" (click)="subscribeMeetup()" class="agree-visited">
+          Я пойду!
+        </button>
+        <button *ngIf="isSubscribed()" (click)="unsubscribeFromMeetup()" class="dont-visited">
+          Я не пойду
+        </button>
+      </div>
+      <button *ngIf="isOwner()" (click)="deleteMeetup(meetups.id)"  class="deleteMeetup">
+        Удалить
       </button>
       <button class="discraption-fun" (click)="toggleList()">
         <span class="material-symbols-outlined icon-discrapiton-fun {{isListExpanded ? 'button-toggle' : ''}}">expand_less</span>

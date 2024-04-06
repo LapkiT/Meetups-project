@@ -26,6 +26,7 @@ export class MeetupsTaskComponent implements OnDestroy {
 
   public MeetupSubscription: Subscription | null = null;
   public unsubscribeFromMeetupSubscription: Subscription | null = null;
+  public deleteMeetupSubscription: Subscription | null = null;
 
 
 
@@ -50,6 +51,7 @@ export class MeetupsTaskComponent implements OnDestroy {
         error: err => console.error(err)
       })
     }
+
   public unsubscribeFromMeetup() {
     this.unsubscribeFromMeetupSubscription = this.meetupsService
             .httpMeetupUnSub(this.meetups.id, this.userService.userId)
@@ -68,6 +70,19 @@ export class MeetupsTaskComponent implements OnDestroy {
 
   public isSubscribed(): boolean {
     return this.meetups.users.some(user => user.id === this.userService.userId);
+  }
+
+  public isOwner(): boolean {
+    return this.meetups.owner.id === this.userService.userId;
+  }
+
+  public deleteMeetup(meetupId: number) {
+    this.meetupsService.HttpDeleteMeetup(meetupId).subscribe({
+      next: () => {
+
+      },
+      error: err => console.error(err)
+    });
   }
 
   ngOnDestroy() {

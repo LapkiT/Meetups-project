@@ -2,63 +2,135 @@
   <div class="container">
     <div class = "form-container">
       <h1 class = "add-meetups-h1">Add meetups</h1>
-      <form action="" class="adding-tasks-form">
+      <form [formGroup]="formMeetups"  action="" class="adding-tasks-form">
 
         <label class="name-text">
           <span>Название:</span>
-          <input type="text" class="text-input">
+          <div class="flex-container">
+            <input
+              type="text"
+              class="text-input"
+              formControlName = "name"
+            >
+            <span *ngIf="formMeetups.touched && formMeetups.get('name')?.errors?.['required']">Обязательно заполните!</span>
+          </div>
         </label>
 
         <div class="date-time-container">
           <label class="date">
             <span>Дата:</span>
-            <input type="date" class="date-input">
+            <div class="flex-container">
+              <input
+                type="date"
+                class="date-input"
+                formControlName="date"
+              >
+              <span *ngIf="formMeetups.touched && formMeetups.get('date')?.errors?.['required']">Обязательно заполните!</span>
+              <span *ngIf="formMeetups.get('date')?.errors?.['futureDate']">Дата не может быть в прошлом</span>
+            </div>
           </label>
           <label class="name-text">
             <span>Время:</span>
-            <input type="time" class="time-input">
+            <div class="flex-container">
+              <input
+                type="time"
+                class="time-input"
+                formControlName="time_code">
+              <span *ngIf="formMeetups.touched && formMeetups.get('time_code')?.errors?.['required']">Обязательно заполните!</span>
+              <span *ngIf="formMeetups.get('time_code')?.errors?.['timeInvalid']">Время не может быть в прошлом</span>
+            </div>
           </label>
         </div>
 
-        <label class="place-text">
-          <span>Место:</span>
-          <input type="text" class="place-input">
+        <label class="name-text">
+          <span>Продолжит<br>ельность:</span>
+          <div class="flex-container">
+            <input
+              min="0"
+              max="120"
+              type="number"
+              class="time-input"
+              formControlName="duration">
+            <span *ngIf="formMeetups.get('duration')?.touched || formMeetups.get('duration')?.dirty">
+                <span *ngIf="formMeetups.get('duration')?.errors?.['required']">Продолжительность обязательна к заполнению</span>
+                <span *ngIf="formMeetups.get('duration')?.errors?.['min']">Минимальная продолжительность - 30 минут</span>
+                <span *ngIf="formMeetups.get('duration')?.errors?.['max']">Максимальная продолжительность - 120 минут</span>
+           </span>
+          </div>
         </label>
 
-        <label class="short-description-text">
-          <span>Короткое описание:</span>
-          <textarea type="text" class="shor-description-input"></textarea>
+
+        <label class="place-text">
+          <span>Место:</span>
+          <div class="flex-container">
+            <input
+              type="text"
+              class="place-input"
+              formControlName="location"
+            >
+            <span *ngIf="formMeetups.touched && formMeetups.get('location')?.errors?.['required']">Обязательно заполните!</span>
+          </div>
         </label>
 
         <label class="long-text">
-          <span>Подробное описание:</span>
-          <textarea type="text" class="long-description-input"></textarea>
+          <span>описание:</span>
+          <div class="flex-container">
+                      <textarea
+                        type="text"
+                        class="long-description-input"
+                        formControlName="description"></textarea>
+            <span *ngIf="formMeetups.touched && formMeetups.get('description')?.errors?.['required']">Обязательно заполните!</span>
+          </div>
         </label>
 
         <label class="targeted-text">
           <span>Целевая аудитория:</span>
-          <textarea type="text" class="targeted-input"></textarea>
+          <div class="flex-container">
+                      <textarea
+                        type="text"
+                        class="targeted-input"
+                        formControlName="target_audience"></textarea>
+            <span *ngIf="formMeetups.touched && formMeetups.get('target_audience')?.errors?.['required']">Обязательно заполните!</span>
+          </div>
         </label>
 
         <label class="know-text">
           <span>Что надо знать?</span>
-          <textarea type="text" class="know-input"></textarea>
+          <div class="flex-container">
+                      <textarea
+                        type="text"
+                        class="know-input"
+                        formControlName="need_to_know"></textarea>
+            <span *ngIf="formMeetups.touched && formMeetups.get('need_to_know')?.errors?.['required']">Обязательно заполните!</span>
+          </div>
         </label>
 
         <label class="tobe-text">
           <span>Что будет?</span>
-          <textarea type="text" class="tobe-input"></textarea>
+          <div class="flex-container">
+            <textarea
+              type="text"
+              class="tobe-input"
+              formControlName="will_happen"></textarea>
+            <span *ngIf="formMeetups.touched && formMeetups.get('will_happen')?.errors?.['required']">Обязательно заполните!</span>
+          </div>
         </label>
 
         <label class="when-text">
           <span>Почему надо обязательно прийти?</span>
-          <textarea type="text" class="when-input"></textarea>
+          <div class="flex-container">
+              <textarea
+                type="text"
+                class="when-input"
+                formControlName="reason_to_come"></textarea>
+            <span *ngIf="formMeetups.touched && formMeetups.get('reason_to_come')?.errors?.['required']">Обязательно заполните!</span>
+          </div>
         </label>
 
         <div class="btn-form">
           <button class="delete-btn">Удалить</button>
           <button class="cancellation-btn">Отменить</button>
-          <button class="save-btn">Сохранить</button>
+          <button class="save-btn" (click)="submitForm()" [disabled]="formMeetups.invalid">Сохранить</button>
         </div>
 
       </form>

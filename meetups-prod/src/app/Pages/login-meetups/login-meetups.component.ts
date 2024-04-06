@@ -57,7 +57,6 @@ export class LoginMeetupsComponent implements OnDestroy{
   }
 
   ngOnDestroy(): void {
-    //отписываемся от потока, чтобы избежать утечек памяти
     if (this.subscription) this.subscription.unsubscribe();
   }
 }

@@ -161,3 +161,13 @@ label {
     background: rgb(76, 63, 120);
   }
 }
+
+.flex-container {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  span {
+    width: 100%;
+    color: chocolate;
+  }
+}

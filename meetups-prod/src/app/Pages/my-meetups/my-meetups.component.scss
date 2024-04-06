@@ -1,0 +1,25 @@
+.my-meetups {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: rgb(30, 30, 30);
+  align-items: center;
+}
+
+.add-task {
+  font-size: 40px;
+  font-weight: bold;
+  left: 92%;
+  top: 90%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  width: 100px;
+  height: 46px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px 0px rgba(62, 5, 4, 0.25);
+  background: rgb(0, 134, 151);
+}
