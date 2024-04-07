@@ -1,5 +1,119 @@
 .user-item {
+  gap: 5px;
   display: flex;
   flex-direction: row;
+  color: white;
+}
+
+.user-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 270px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 0.3px solid rgb(180, 180, 192);
+  .email-input {
+    font-size: 25px;
+    border: 3px solid rgb(76, 63, 120);
+    border-radius: 3px;
+    background: rgb(44, 44, 44);
+    color: white;
+  }
+  .email-input:hover {
+    background: rgb(56, 47, 95);
+  }
+}
+
+.user-password {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 270px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 0.3px solid rgb(180, 180, 192);
+  .password-input {
+    font-size: 25px;
+    border: 3px solid rgb(76, 63, 120);
+    border-radius: 3px;
+    background: rgb(44, 44, 44);
+    color: white;
+  }
+  .password-input:hover {
+    background: rgb(56, 47, 95);
+  }
+}
+
+.user-role {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 0.3px solid rgb(180, 180, 192);
+  .select-info {
+    font-size: 25px;
+    color: white;
+    border: 3px solid rgb(76, 63, 120);
+    border-radius: 3px;
+    background: rgb(44, 44, 44);
+  }
+  .select-info:hover {
+    background: rgb(56, 47, 95);
+  }
+}
+
+.button-function {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  gap: 10px;
+  box-sizing: border-box;
+  border: 0.3px solid rgb(180, 180, 192);
+
+  .delBtn {
+    color: chocolate;
+    font-size: 20px;
+    font-weight: bold;
+    box-sizing: border-box;
+    border: 3px solid rgb(184, 85, 38);
+    border-radius: 5px;
+    background: rgb(30, 30, 30);
+  }
+
+  .edBtn {
+    box-sizing: border-box;
+    border: 3px solid rgb(184, 85, 38);
+    border-radius: 5px;
+    font-size: 20px;
+    color: chocolate;
+    background: rgb(30, 30, 30);
+  }
+
+  .confirmBtn {
+    box-sizing: border-box;
+    border: 3px solid rgb(184, 85, 38);
+    border-radius: 5px;
+    font-size: 20px;
+    color: chocolate;
+    background: rgb(30, 30, 30);
+  }
+
+  .edBtn:hover {
+    background: rgb(56, 47, 95);
+  }
+
+  .edBtn:active {
+    background: rgb(176, 176, 176);
+  }
+
+  .delBtn:hover {
+    background: rgb(56, 47, 95);
+  }
+  .delBtn:active {
+    background: rgb(176, 176, 176);
+  }
 
 }

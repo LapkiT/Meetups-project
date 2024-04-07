@@ -1,7 +1,9 @@
 <main class="main-users">
   <div class="container">
     <div class="flex-center">
-      <app-user-item></app-user-item>
+      <app-user-item *ngFor="let user of adminService.allUsers"
+        [user]="user"
+      />
     </div>
   </div>
 </main>

@@ -51,7 +51,7 @@
               type="number"
               class="time-input"
               formControlName="duration">
-            <span *ngIf="formMeetups.get('duration')?.touched || formMeetups.get('duration')?.dirty">
+            <span *ngIf="formMeetups.touched || formMeetups.get('duration')?.dirty">
                 <span *ngIf="formMeetups.get('duration')?.errors?.['required']">Продолжительность обязательна к заполнению</span>
                 <span *ngIf="formMeetups.get('duration')?.errors?.['min']">Минимальная продолжительность - 30 минут</span>
                 <span *ngIf="formMeetups.get('duration')?.errors?.['max']">Максимальная продолжительность - 120 минут</span>

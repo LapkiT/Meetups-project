@@ -37,7 +37,7 @@ export class EditMeetupsComponent implements OnDestroy, OnInit{
     description: new FormControl("", [Validators.required]),
     time_code: new FormControl("", [Validators.required]),
     date: new FormControl('', [Validators.required]),
-    duration: new FormControl(0,  [Validators.required, Validators.min(30), Validators.max(120)]),
+    duration: new FormControl(30,  [Validators.required, Validators.min(30), Validators.max(120)]),
     location: new FormControl("", [Validators.required]),
     target_audience: new FormControl("", [Validators.required]),
     need_to_know: new FormControl("", [Validators.required]),
