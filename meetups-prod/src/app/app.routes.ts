@@ -6,9 +6,10 @@ import {RegisterMeetupsComponent} from "./Pages/register-meetups/register-meetup
 import {UsersMeetupsAllComponent} from "./Pages/users-meetups-all/users-meetups-all.component";
 import {MyMeetupsComponent} from "./Pages/my-meetups/my-meetups.component";
 import {EditMeetupsComponent} from "./Shared/Components/edit-meetups/edit-meetups.component";
+import {authGuard} from "./Shared/Guard/auth-guard/auth.guard";
 
 export const routes: Routes = [
-  {path: "allmeetups", component: AllMeetupsPegesComponent},
+  {path: "allmeetups", component: AllMeetupsPegesComponent, canActivate: [authGuard]},
   {path: "addtask", component: AddingTasksComponent},
   {path: "", component: LoginMeetupsComponent},
   {path: "register", component: RegisterMeetupsComponent},

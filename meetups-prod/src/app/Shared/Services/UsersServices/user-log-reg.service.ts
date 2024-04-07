@@ -79,4 +79,8 @@ export class UserLogRegService {
     this.User = null;
     this.wasLogin = false;
   }
+
+  public get Users() {
+    return this.User;
+  }
 }
