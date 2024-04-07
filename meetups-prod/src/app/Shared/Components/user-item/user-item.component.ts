@@ -20,6 +20,7 @@ export class UserItemComponent implements OnInit, OnDestroy {
   @Input() user!: UsFetchData;
   private deleteUserSubscription: Subscription | null = null;
   private upUserSubscription: Subscription | null = null;
+  private cRoleSubscription: Subscription | null = null;
 
   public name!: FormControl<string | null>;
   public email!: FormControl<string | null>;
@@ -43,6 +44,12 @@ export class UserItemComponent implements OnInit, OnDestroy {
     this.disableForm();
   }
 
+  public deleteUser() {
+    this.deleteUserSubscription = this.adminService
+      .deleteUser(this.user.id)
+      .subscribe();
+  }
+
   public editUser() {
     this.isEditing = true;
     this.FormEbable();
@@ -64,6 +71,9 @@ export class UserItemComponent implements OnInit, OnDestroy {
     this.upUserSubscription = this.adminService
       .changeRole(userData.id, <string>this.roles.value)
       .subscribe();
+    this.cRoleSubscription = this.adminService
+      .changeRole(userData.id, <string>this.roles.value)
+      .subscribe();
   }
 
   private disableForm() {
@@ -74,13 +84,11 @@ export class UserItemComponent implements OnInit, OnDestroy {
 
 
   ngOnDestroy(): void {
-    if (this.deleteUserSubscription) {
-      this.deleteUserSubscription.unsubscribe();
-    }
+    if (this.deleteUserSubscription) this.deleteUserSubscription.unsubscribe();
+    if (this.upUserSubscription) this.upUserSubscription.unsubscribe();
+    if (this.cRoleSubscription) this.cRoleSubscription.unsubscribe();
 
-    if (this.upUserSubscription) {
-      this.upUserSubscription.unsubscribe();
-    }
+
   }
 
   private FormEbable() {
@@ -96,4 +104,6 @@ export class UserItemComponent implements OnInit, OnDestroy {
       this.roles.valid
     );
   }
+
+  protected readonly Number = Number;
 }

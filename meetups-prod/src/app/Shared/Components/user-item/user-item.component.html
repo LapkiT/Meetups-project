@@ -23,13 +23,13 @@
               name=""
               id="">
 
-        <option value="ADMIN">USER</option>
-        <option value="USER">ADMIN</option>
+        <option value="USER">USER</option>
+        <option value="ADMIN">ADMIN</option>
       </select>
     </div>
 
     <div class="button-function">
-      <button class = "delBtn">x</button>
+      <button (click)="deleteUser()" class = "delBtn">x</button>
       <button (click)="editUser()" *ngIf="!isEditing" class = "edBtn">edit</button>
       <button
         class="confirmBtn"

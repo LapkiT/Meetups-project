@@ -22,6 +22,16 @@ export class AdminService {
     );
   }
 
+  public deleteUser(id: number): Observable<UsFetchData | never> {
+    return this.httpClient.delete<UsFetchData>(`${environment.backendOrigin}/user/${id}`).pipe(
+      tap((response: UsFetchData) => {
+        this.allUsers = this.allUsers.filter(
+          (user) => user.id !== response.id
+        );
+      })
+    );
+  }
+
   public editUser(
     Inf: EditUser
   ): Observable<EditResponse> {
@@ -53,8 +63,6 @@ export class AdminService {
   }
 
   public changeRole(id: number, role: string) {
-    const urlToFetch = `${environment.backendOrigin}/user/role`;
-
     const body: roleResponse = {
       name: role,
       userId: id,
