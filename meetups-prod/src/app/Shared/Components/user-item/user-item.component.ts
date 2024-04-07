@@ -2,7 +2,7 @@ import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
 import {AdminService} from "../../Services/AdminServices/admin.service";
 import {Subscription} from "rxjs";
 import {EditUser, UsFetchData} from "../../Interfaces/user";
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormControl, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgIf} from "@angular/common";
 
 @Component({
@@ -105,5 +105,4 @@ export class UserItemComponent implements OnInit, OnDestroy {
     );
   }
 
-  protected readonly Number = Number;
 }
