@@ -5,13 +5,15 @@ import { Subscription} from "rxjs";
 import {NgForOf} from "@angular/common";
 import {Router} from "@angular/router";
 import {UserLogRegService} from "../../Shared/Services/UsersServices/user-log-reg.service";
+import {SearchMeetupsComponent} from "../../Shared/Components/search-meetups/search-meetups.component";
 
 @Component({
   selector: 'app-all-meetups-peges',
   standalone: true,
   imports: [
     MeetupsTaskComponent,
-    NgForOf
+    NgForOf,
+    SearchMeetupsComponent
   ],
   templateUrl: './all-meetups-peges.component.html',
   styleUrl: './all-meetups-peges.component.scss'

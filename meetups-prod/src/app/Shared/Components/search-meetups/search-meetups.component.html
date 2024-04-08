@@ -1,1 +1,9 @@
-<p>search-meetups works!</p>
+<div class="topnav">
+  <form class="search-container" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <input type="text" placeholder="Search.." formControlName="searchText">
+    <input class="date" type="date" placeholder="Date From" formControlName="dateFrom">
+    <input class="date" type="date" placeholder="Date To" formControlName="dateTo">
+    <button type="submit"><span class="material-symbols-outlined">search</span> Поиск</button>
+    <button type="button" (click)="searchForm.reset()">Отменить</button>
+  </form>
+</div>

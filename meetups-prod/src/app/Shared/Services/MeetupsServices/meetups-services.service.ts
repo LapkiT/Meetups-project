@@ -22,8 +22,31 @@ export class MeetupsServicesService {
       }),
       tap((res: Meetup[]) => {
         this.meetups = res;
+        console.log(res)
+        this.filteredMeetups = res;
       }),
     )
+  }
+
+  public filterMeetups(searchText: string, dateFrom: string, dateTo: string) {
+    let filtered = this.meetups;
+
+    if (searchText) {
+      filtered = filtered.filter(m =>
+        m.name.toLowerCase().includes(searchText.toLowerCase()) ||
+        m.description.toLowerCase().includes(searchText.toLowerCase())
+      );
+    }
+    if (dateFrom) {
+      const fromDate = new Date(dateFrom);
+      filtered = filtered.filter(m => new Date(m.time) >= fromDate);
+    }
+    if (dateTo) {
+      const toDate = new Date(dateTo);
+      filtered = filtered.filter(m => new Date(m.time) <= toDate);
+    }
+
+    this.filteredMeetups = filtered;
   }
 
   public httpMeetupSub(idMeetup: number, idUser: number ): Observable<Meetup> {
