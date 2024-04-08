@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b1947abf-7678-4023-86c5-7bffa0b35dd4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Services/UsersServices/user-log-reg.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Services/UsersServices/user-log-reg.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Pages/all-meetups-peges/all-meetups-peges.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Pages/all-meetups-peges/all-meetups-peges.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Pages/login-meetups/login-meetups.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Pages/login-meetups/login-meetups.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Pages/users-meetups-all/users-meetups-all.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Pages/users-meetups-all/users-meetups-all.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Guard/auth-guard/auth.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Guard/auth-guard/auth.guard.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Services/MeetupsServices/meetups-services.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Services/MeetupsServices/meetups-services.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/app.routes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,6 +100,9 @@
       <workItem from="1712390178239" duration="8679000" />
       <workItem from="1712407026520" duration="31653000" />
       <workItem from="1712477469075" duration="24505000" />
+      <workItem from="1712516564881" duration="460000" />
+      <workItem from="1712582329870" duration="4899000" />
+      <workItem from="1712587779310" duration="2708000" />
     </task>
     <servers />
   </component>

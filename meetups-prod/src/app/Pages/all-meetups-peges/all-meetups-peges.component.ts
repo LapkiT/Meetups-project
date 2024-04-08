@@ -4,8 +4,6 @@ import {MeetupsServicesService} from "../../Shared/Services/MeetupsServices/meet
 import { Subscription} from "rxjs";
 import {NgForOf} from "@angular/common";
 import {Router} from "@angular/router";
-import {Meetup} from "../../Shared/Interfaces/meetups";
-import {ChangeDetection} from "@angular/cli/lib/config/workspace-schema";
 import {UserLogRegService} from "../../Shared/Services/UsersServices/user-log-reg.service";
 
 @Component({
@@ -23,20 +21,22 @@ export class AllMeetupsPegesComponent implements OnDestroy, OnInit{
   meetupServices = inject(MeetupsServicesService);
   private subscription: Subscription | null = null;
   private router = inject(Router);
-  private changeDetector = inject(ChangeDetectorRef);
 
 
   ngOnInit(): void {
     this.subscription = this.meetupServices.httpMeetupsAll().subscribe({
       next: (res) => {
-        this.changeDetector.detectChanges(); // Обновление представления
+
       },
-      error: (err) => console.error(err),
+      error: (err) => {
+        console.error(err)
+      },
     });
 
     this.userService.checkToken();
   }
   ngOnDestroy(): void {
     if (this.subscription) this.subscription.unsubscribe();
+
   }
 }

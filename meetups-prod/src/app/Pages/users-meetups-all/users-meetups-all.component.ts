@@ -17,6 +17,7 @@ import {NgForOf} from "@angular/common";
 export class UsersMeetupsAllComponent implements OnInit, OnDestroy{
   public adminService = inject(AdminService);
   private allUsersSubscription: Subscription | null = null;
+
   ngOnDestroy() {
     if (this.allUsersSubscription) {
       this.allUsersSubscription.unsubscribe();

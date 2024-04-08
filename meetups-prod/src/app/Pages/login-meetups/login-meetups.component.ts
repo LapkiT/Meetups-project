@@ -1,4 +1,4 @@
-import {Component, inject, OnDestroy} from '@angular/core';
+import {Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {Router, RouterLink} from "@angular/router";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {logUser} from "../../Shared/Interfaces/user";
@@ -17,7 +17,7 @@ import {CommonModule} from "@angular/common";
   templateUrl: './login-meetups.component.html',
   styleUrl: './login-meetups.component.scss'
 })
-export class LoginMeetupsComponent implements OnDestroy{
+export class LoginMeetupsComponent implements OnDestroy, OnInit{
   loginUser!: logUser;
   router = inject(Router)
   authService = inject(UserLogRegService)
@@ -58,5 +58,10 @@ export class LoginMeetupsComponent implements OnDestroy{
 
   ngOnDestroy(): void {
     if (this.subscription) this.subscription.unsubscribe();
+  }
+
+  ngOnInit() {
+    this.authService.checkToken();
+    localStorage.removeItem('jwt_token')
   }
 }

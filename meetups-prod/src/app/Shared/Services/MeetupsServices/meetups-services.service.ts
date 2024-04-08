@@ -10,15 +10,19 @@ import {UserLogRegService} from "../UsersServices/user-log-reg.service";
 })
 export class MeetupsServicesService {
   public meetups: Meetup[] = [];
+  public filteredMeetups: Meetup[] = [];
   public userService = inject(UserLogRegService);
   private httpClient = inject(HttpClient);
 
 
   public httpMeetupsAll(): Observable<Meetup[]> {
     return this.httpClient.get<Meetup[]>(environment.backendOrigin + "/meetup").pipe(
+      map((res: Meetup[]) => {
+        return res.filter((meetup) => meetup.owner !== null);
+      }),
       tap((res: Meetup[]) => {
         this.meetups = res;
-      })
+      }),
     )
   }
 
@@ -51,7 +55,7 @@ export class MeetupsServicesService {
         (meetup) => meetup.owner.id === this.userService.userId
         )
       ),
-      tap((res: Meetup[])=> this.meetups = res)
+      tap((res: Meetup[]) => this.meetups = res)
     )
   }
 

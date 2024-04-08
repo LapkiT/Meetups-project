@@ -6,9 +6,10 @@ export const authGuard: CanActivateFn = (route, state) => {
   const userService = inject(UserLogRegService);
   const router = inject(Router);
 
-  if (userService.Users) {
-    router.navigate(['/allmeetups']);
+  userService.checkToken();
 
+  if (userService.Users) {
+    router.navigate(['/allmeetups'])
     return false;
   }
 
