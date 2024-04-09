@@ -1,6 +1,6 @@
 <main class="my-meetups">
   <div class="container">
-    <app-meetups-task *ngFor= "let meetup of meetupServices.meetups" [meetups]="meetup"/>
+    <app-meetups-task *ngFor= "let meetup of meetupServices.filteredMeetups" [meetups]="meetup"/>
   </div>
   <a href="addtask" class="add-task">+</a>
 </main>

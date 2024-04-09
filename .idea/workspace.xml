@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b1947abf-7678-4023-86c5-7bffa0b35dd4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Pages/all-meetups-peges/all-meetups-peges.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Pages/all-meetups-peges/all-meetups-peges.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Pages/my-meetups/my-meetups.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Pages/my-meetups/my-meetups.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Pages/my-meetups/my-meetups.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Pages/my-meetups/my-meetups.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Services/MeetupsServices/meetups-services.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Services/MeetupsServices/meetups-services.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +103,7 @@
       <workItem from="1712587779310" duration="17129000" />
       <workItem from="1712646379258" duration="117000" />
       <workItem from="1712646515268" duration="10487000" />
-      <workItem from="1712657931363" duration="3110000" />
+      <workItem from="1712657931363" duration="3824000" />
     </task>
     <servers />
   </component>

@@ -77,7 +77,7 @@ export class MeetupsServicesService {
         (meetup) => meetup.owner.id === this.userService.userId
         )
       ),
-      tap((res: Meetup[]) => this.meetups = res)
+      tap((res: Meetup[]) => this.filteredMeetups = res)
     )
   }
 

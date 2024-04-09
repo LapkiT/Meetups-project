@@ -39,6 +39,6 @@ export class AllMeetupsPegesComponent implements OnDestroy, OnInit{
   }
   ngOnDestroy(): void {
     if (this.subscription) this.subscription.unsubscribe();
-
+    this.meetupServices.filteredMeetups = this.meetupServices.meetups;
   }
 }
