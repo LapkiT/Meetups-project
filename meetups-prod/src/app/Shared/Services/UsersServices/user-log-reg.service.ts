@@ -26,26 +26,12 @@ export class UserLogRegService {
         map((res: LoginResponse): User => this.parseJwt(res.token)),
         tap((user: User) => {
           this.userRole = user.roles[0].name == "ADMIN" ? true : false;
-        }),
-        catchError((): Observable<null> => {
-          alert("Ошибка")
-          return of(null);
-        }),
+        })
       );
   }
 
   public register(user: logUser): Observable<RegistrationResponse | null> {
     return this.http.post<RegistrationResponse>(environment.backendOrigin + '/auth/registration', user)
-      .pipe(
-        tap((res: RegistrationResponse) => {
-          alert("Пользователь зарегистрирован");
-        }),
-        catchError((): Observable<null> => {
-          localStorage.removeItem('jwt_token');
-          alert("Ошибка")
-          return of(null);
-        })
-      );
   }
 
   public checkToken(): void {

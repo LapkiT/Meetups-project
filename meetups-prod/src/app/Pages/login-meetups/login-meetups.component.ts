@@ -5,6 +5,7 @@ import {logUser} from "../../Shared/Interfaces/user";
 import {Subscription} from "rxjs";
 import {UserLogRegService} from "../../Shared/Services/UsersServices/user-log-reg.service";
 import {CommonModule} from "@angular/common";
+import {ErrorProcessingService} from "../../Shared/Services/ErrorServices/error-processing.service";
 
 @Component({
   selector: 'app-login-meetups',
@@ -18,6 +19,9 @@ import {CommonModule} from "@angular/common";
   styleUrl: './login-meetups.component.scss'
 })
 export class LoginMeetupsComponent implements OnDestroy, OnInit{
+  errorService = inject(ErrorProcessingService);
+  public errorMessage = "";
+
   loginUser!: logUser;
   router = inject(Router)
   authService = inject(UserLogRegService)
@@ -46,12 +50,13 @@ export class LoginMeetupsComponent implements OnDestroy, OnInit{
   public submit(value: logUser) {
     this.authService
       .login(value)
-      .subscribe((result) => {
-        if (result) {
-          this.router.navigate(['/allmeetups']);
-          this.authService.wasLogin = true;
-        } else {
-          alert("Возможно введены некорректные данные!");
+      .subscribe({
+        next: () => {
+            this.router.navigate(['/allmeetups']);
+            this.authService.wasLogin = true;
+        },
+        error: (err) => {
+          this.errorMessage = this.errorService.processError(err);
         }
       })
   }

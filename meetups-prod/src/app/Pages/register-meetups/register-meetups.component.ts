@@ -5,6 +5,7 @@ import {Subscription} from "rxjs";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {UserLogRegService} from "../../Shared/Services/UsersServices/user-log-reg.service";
 import {CommonModule, NgIf} from "@angular/common";
+import {ErrorProcessingService} from "../../Shared/Services/ErrorServices/error-processing.service";
 
 @Component({
   selector: 'app-register-meetups',
@@ -19,6 +20,10 @@ import {CommonModule, NgIf} from "@angular/common";
   styleUrl: './register-meetups.component.scss'
 })
 export class RegisterMeetupsComponent implements OnDestroy{
+
+  errorService = inject(ErrorProcessingService);
+  public errorMessage = "";
+
   router = inject(Router)
   authService = inject(UserLogRegService)
   registerUser!: logUser;
@@ -46,11 +51,13 @@ export class RegisterMeetupsComponent implements OnDestroy{
   public submit(value: logUser) {
     this.authService
       .register(value)
-      .subscribe((result) => {
-        if (result) {
-          this.router.navigate(['/'])
-        } else {
-          alert("Возможно введены некорректные данные!");
+      .subscribe({
+       next: () => {
+         alert("Регистрация прошла успешно!");
+         this.router.navigate(['/']);
+       },
+        error: (err) => {
+          this.errorMessage = this.errorService.processError(err);
         }
       })
   }

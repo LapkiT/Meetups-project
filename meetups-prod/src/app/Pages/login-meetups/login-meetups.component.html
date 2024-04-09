@@ -12,7 +12,7 @@
                class="email-input">
         <span
           class="error-text"
-          *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.value === ''"
+          *ngIf="loginForm.touched && loginForm.get('email')?.value === ''"
         >
           Поле должно быть заполнено!
         </span>
@@ -33,7 +33,7 @@
                class="password-input">
         <span
           class="error-text"
-          *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.value === ''"
+          *ngIf="loginForm.touched && loginForm.get('password')?.value === ''"
         >
           Поле должно быть заполнено!
         </span>
@@ -57,7 +57,8 @@
             Log In
           </button>
         </div>
-
+        <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+        <p class = "result"></p>
       </form>
     </div>
   </div>
