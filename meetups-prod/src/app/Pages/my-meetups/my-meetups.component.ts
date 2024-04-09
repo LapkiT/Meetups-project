@@ -16,7 +16,7 @@ import {UserLogRegService} from "../../Shared/Services/UsersServices/user-log-re
   styleUrl: './my-meetups.component.scss',
 })
 export class MyMeetupsComponent implements OnInit, OnDestroy {
-  public userService = inject(UserLogRegService)z
+  public userService = inject(UserLogRegService)
   private subscription: Subscription | null = null;
   public meetupServices = inject(MeetupsServicesService);
   ngOnInit(): void {

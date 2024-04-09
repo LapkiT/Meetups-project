@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1947abf-7678-4023-86c5-7bffa0b35dd4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Pages/my-meetups/my-meetups.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Pages/my-meetups/my-meetups.component.ts" afterDir="false" />
-    </list>
+    <list default="true" id="b1947abf-7678-4023-86c5-7bffa0b35dd4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,7 +98,7 @@
       <workItem from="1712587779310" duration="17129000" />
       <workItem from="1712646379258" duration="117000" />
       <workItem from="1712646515268" duration="10487000" />
-      <workItem from="1712657931363" duration="2809000" />
+      <workItem from="1712657931363" duration="2882000" />
     </task>
     <servers />
   </component>
