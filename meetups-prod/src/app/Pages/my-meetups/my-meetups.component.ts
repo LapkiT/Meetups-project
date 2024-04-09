@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, inject, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnDestroy, OnInit} from '@angular/core';
 import {MeetupsTaskComponent} from "../../Shared/Components/meetups-task/meetups-task.component";
 import { Subscription } from "rxjs";
 import {MeetupsServicesService} from "../../Shared/Services/MeetupsServices/meetups-services.service";
@@ -13,7 +13,8 @@ import {UserLogRegService} from "../../Shared/Services/UsersServices/user-log-re
     NgForOf
   ],
   templateUrl: './my-meetups.component.html',
-  styleUrl: './my-meetups.component.scss'
+  styleUrl: './my-meetups.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MyMeetupsComponent implements OnInit, OnDestroy {
   public userService = inject(UserLogRegService)
@@ -23,7 +24,7 @@ export class MyMeetupsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.meetupServices.httpMeetupMyMeetup().subscribe({
       next: (res) => {
-        this.changeDetector.detectChanges();
+        this.changeDetector.markForCheck();
       },
       error: (err) => console.error(err),
     });

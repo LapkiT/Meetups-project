@@ -1,4 +1,4 @@
-import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
 import {Meetup} from "../../Interfaces/meetups";
 import {MeetupsServicesService} from "../../Services/MeetupsServices/meetups-services.service";
 import {UserLogRegService} from "../../Services/UsersServices/user-log-reg.service";
@@ -12,12 +12,13 @@ import {Router} from "@angular/router";
     NgIf
   ],
   templateUrl: './meetups-task.component.html',
-  styleUrl: './meetups-task.component.scss'
+  styleUrl: './meetups-task.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MeetupsTaskComponent implements OnDestroy {
 
   isListExpanded = false;
-
+  private cdr: ChangeDetectorRef = inject(ChangeDetectorRef);
   private router = inject(Router)
 
   userService = inject(UserLogRegService)
@@ -25,7 +26,6 @@ export class MeetupsTaskComponent implements OnDestroy {
 
   @Input() meetups!: Meetup;
 
-  public subscriptionBtn: boolean | null = null;
 
   public MeetupSubscription: Subscription | null = null;
   public unsubscribeFromMeetupSubscription: Subscription | null = null;
@@ -49,10 +49,11 @@ export class MeetupsTaskComponent implements OnDestroy {
       .httpMeetupSub(this.meetups.id, this.userService.userId)
       .subscribe({
         next: (res) => {
-          this.subscriptionBtn = true;
+          this.isSubscribed()
         },
         error: err => console.error(err)
       })
+    this.cdr.markForCheck();
     }
 
   public unsubscribeFromMeetup() {
@@ -60,19 +61,21 @@ export class MeetupsTaskComponent implements OnDestroy {
             .httpMeetupUnSub(this.meetups.id, this.userService.userId)
              .subscribe({
                next: (res) => {
-                 this.subscriptionBtn = false;
+                this.isSubscribed()
                },
                error: err => console.error(err)
              })
+    this.cdr.markForCheck();
   }
 
   toggleList(): void {
     console.log(this.datePipeFin(this.meetups.time))
     this.isListExpanded = !this.isListExpanded;
+    this.cdr.markForCheck();
   }
 
   public isSubscribed(): boolean {
-    return this.meetups.users.some(user => user.id === this.userService.userId);
+    return !!this.meetups.users.find(user => user.id === this.userService.userId);
   }
 
   public isOwner(): boolean {

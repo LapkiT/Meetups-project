@@ -8,13 +8,15 @@ import {MyMeetupsComponent} from "./Pages/my-meetups/my-meetups.component";
 import {EditMeetupsComponent} from "./Shared/Components/edit-meetups/edit-meetups.component";
 import {authGuard} from "./Shared/Guard/auth-guard/auth.guard";
 import {editGuard} from "./Shared/Guard/edit-guard/edit.guard";
+import {authLogoutGuard} from "./Shared/Guard/logout-guard/auth-logout.guard";
+import {adminUserGuard} from "./Shared/Guard/admin-guard/admin-user.guard";
 
 export const routes: Routes = [
-  {path: "allmeetups", component: AllMeetupsPegesComponent},
-  {path: "addtask", component: AddingTasksComponent},
+  {path: "allmeetups", component: AllMeetupsPegesComponent, canActivate: [authLogoutGuard]},
+  {path: "addtask", component: AddingTasksComponent,  canActivate: [authLogoutGuard]},
   {path: "", component: LoginMeetupsComponent, canActivate: [authGuard]},
   {path: "register", component: RegisterMeetupsComponent, canActivate: [authGuard]},
-  {path: "users", component: UsersMeetupsAllComponent},
-  {path: "mymeetups", component: MyMeetupsComponent},
+  {path: "users", component: UsersMeetupsAllComponent, canActivate: [adminUserGuard]},
+  {path: "mymeetups", component: MyMeetupsComponent, canActivate: [authLogoutGuard]},
   {path: 'edit/:id', component: EditMeetupsComponent, canActivate: [editGuard]}
 ];

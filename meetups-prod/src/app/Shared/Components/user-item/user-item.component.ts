@@ -1,4 +1,4 @@
-import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
 import {AdminService} from "../../Services/AdminServices/admin.service";
 import {Subscription} from "rxjs";
 import {EditUser, UsFetchData} from "../../Interfaces/user";
@@ -13,7 +13,8 @@ import {NgIf} from "@angular/common";
     NgIf
   ],
   templateUrl: './user-item.component.html',
-  styleUrl: './user-item.component.scss'
+  styleUrl: './user-item.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserItemComponent implements OnInit, OnDestroy {
   public adminService = inject(AdminService);
@@ -21,6 +22,8 @@ export class UserItemComponent implements OnInit, OnDestroy {
   private deleteUserSubscription: Subscription | null = null;
   private upUserSubscription: Subscription | null = null;
   private cRoleSubscription: Subscription | null = null;
+
+  private cdr = inject(ChangeDetectorRef);
 
   public name!: FormControl<string | null>;
   public email!: FormControl<string | null>;
@@ -47,7 +50,7 @@ export class UserItemComponent implements OnInit, OnDestroy {
   public deleteUser() {
     this.deleteUserSubscription = this.adminService
       .deleteUser(this.user.id)
-      .subscribe();
+      .subscribe(() => this.cdr.markForCheck());
   }
 
   public editUser() {
@@ -66,14 +69,14 @@ export class UserItemComponent implements OnInit, OnDestroy {
 
     this.upUserSubscription = this.adminService
       .editUser(userData)
-      .subscribe();
+      .subscribe(() => this.cdr.markForCheck());
 
     this.upUserSubscription = this.adminService
       .changeRole(userData.id, <string>this.roles.value)
-      .subscribe();
+      .subscribe(() => this.cdr.markForCheck());
     this.cRoleSubscription = this.adminService
       .changeRole(userData.id, <string>this.roles.value)
-      .subscribe();
+      .subscribe(() => this.cdr.markForCheck());
   }
 
   private disableForm() {

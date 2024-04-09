@@ -22,7 +22,6 @@ export class MeetupsServicesService {
       }),
       tap((res: Meetup[]) => {
         this.meetups = res;
-        console.log(res)
         this.filteredMeetups = res;
       }),
     )
@@ -55,7 +54,7 @@ export class MeetupsServicesService {
       idUser: idUser
     }).pipe(
       tap((res: Meetup) => {
-        this.meetups = this.meetups.map(m => m.id === res.id ? res : m)
+        this.filteredMeetups = this.filteredMeetups.map(m => m.id === res.id ? res : m)
       }),
     )
   }
@@ -66,7 +65,7 @@ export class MeetupsServicesService {
       body: { idMeetup, idUser}
     }).pipe(
       tap((res: Meetup) => {
-        this.meetups = this.meetups.map(m => m.id === res.id ? res : m)
+        this.filteredMeetups = this.filteredMeetups.map(m => m.id === res.id ? res : m)
       })
     )
   }
@@ -78,14 +77,14 @@ export class MeetupsServicesService {
         (meetup) => meetup.owner.id === this.userService.userId
         )
       ),
-      tap((res: Meetup[]) => this.meetups = res)
+      tap((res: Meetup[]) => this.filteredMeetups = res)
     )
   }
 
   public HttpDeleteMeetup(id: number): Observable<Meetup> {
     return this.httpClient.delete<Meetup>(environment.backendOrigin + `/meetup/${id}`).pipe(
       tap((res: Meetup) => {
-        this.meetups = this.meetups.filter(
+        this.filteredMeetups = this.filteredMeetups.filter(
           (meetup) => meetup.id !== res.id
         );
       })
