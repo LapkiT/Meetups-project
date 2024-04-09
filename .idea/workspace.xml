@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b1947abf-7678-4023-86c5-7bffa0b35dd4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Pages/login-meetups/login-meetups.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Pages/login-meetups/login-meetups.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Pages/register-meetups/register-meetups.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Pages/register-meetups/register-meetups.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/adding-tasks/adding-tasks.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/adding-tasks/adding-tasks.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/edit-meetups/edit-meetups.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/edit-meetups/edit-meetups.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/meetups-task/meetups-task.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/meetups-task/meetups-task.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/search-meetups/search-meetups.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Shared/Components/search-meetups/search-meetups.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meetups-prod/src/app/Pages/my-meetups/my-meetups.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/meetups-prod/src/app/Pages/my-meetups/my-meetups.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +101,7 @@
       <workItem from="1712587779310" duration="17129000" />
       <workItem from="1712646379258" duration="117000" />
       <workItem from="1712646515268" duration="10487000" />
-      <workItem from="1712657931363" duration="2435000" />
+      <workItem from="1712657931363" duration="2809000" />
     </task>
     <servers />
   </component>

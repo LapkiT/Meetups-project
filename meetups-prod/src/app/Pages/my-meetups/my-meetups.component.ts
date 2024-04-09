@@ -14,17 +14,14 @@ import {UserLogRegService} from "../../Shared/Services/UsersServices/user-log-re
   ],
   templateUrl: './my-meetups.component.html',
   styleUrl: './my-meetups.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MyMeetupsComponent implements OnInit, OnDestroy {
-  public userService = inject(UserLogRegService)
+  public userService = inject(UserLogRegService)z
   private subscription: Subscription | null = null;
   public meetupServices = inject(MeetupsServicesService);
-  private changeDetector = inject(ChangeDetectorRef);
   ngOnInit(): void {
     this.meetupServices.httpMeetupMyMeetup().subscribe({
       next: (res) => {
-        this.changeDetector.markForCheck();
       },
       error: (err) => console.error(err),
     });
