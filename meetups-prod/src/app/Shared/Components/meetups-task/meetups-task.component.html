@@ -9,7 +9,7 @@
         <div class="text-info">
           <p [class]="isListExpanded ? 'visible-content' : 'hidden-content'">
             {{meetups.description}}
-            <br>
+            <br><br><br>
             <span style="font-size: 25px; color: cornsilk">Целевая аудитория</span><br>
             {{meetups.target_audience}}
             <br>
@@ -19,8 +19,10 @@
             <span style="font-size: 25px; color: cornsilk">Что будет?</span><br>
             {{meetups.will_happen}}<br>
 
-            <span style="font-size: 25px; color: cornsilk">Что надо знать?</span><br>
-            {{meetups.reason_to_come}}
+            <span style="font-size: 25px; color: cornsilk">Почему надо обязательно прийти??</span><br>
+            {{meetups.reason_to_come}}<br><br>
+
+            <span style="font-size: 25px; color: cornsilk"></span>
           </p>
        </div>
     </div>

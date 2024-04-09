@@ -17,7 +17,7 @@ import {ErrorProcessingService} from "../../Shared/Services/ErrorServices/error-
     NgIf
   ],
   templateUrl: './register-meetups.component.html',
-  styleUrl: './register-meetups.component.scss'
+  styleUrl: './register-meetups.component.scss',
 })
 export class RegisterMeetupsComponent implements OnDestroy{
 

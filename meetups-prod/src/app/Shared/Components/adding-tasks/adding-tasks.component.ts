@@ -1,4 +1,4 @@
-import {Component, inject, OnDestroy} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnDestroy} from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -20,10 +20,11 @@ import {dateTimeInvalid} from "../../function/dateValidators";
     NgIf
   ],
   templateUrl: './adding-tasks.component.html',
-  styleUrl: './adding-tasks.component.scss'
+  styleUrl: './adding-tasks.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AddingTasksComponent implements OnDestroy{
-
+  private cdr = inject(ChangeDetectorRef);
   private router = inject(Router)
   private meetupService = inject(MeetupsServicesService)
 
@@ -64,9 +65,11 @@ export class AddingTasksComponent implements OnDestroy{
       next: (response) => {
         console.log('Meetup created successfully', response);
         this.router.navigate(['/mymeetups']);
+        this.cdr.markForCheck();
       },
       error: (error) => {
         console.error('Error creating meetup', error);
+        this.cdr.markForCheck();
       }
     });
   }

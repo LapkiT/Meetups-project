@@ -1,4 +1,4 @@
-import {Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input, OnDestroy, OnInit} from '@angular/core';
 import {NgIf} from "@angular/common";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -6,7 +6,6 @@ import {MeetupsServicesService} from "../../Services/MeetupsServices/meetups-ser
 import {Subscription} from "rxjs";
 import { dateTimeInvalid } from "../../function/dateValidators";
 import {CreateBody, Meetup} from "../../Interfaces/meetups";
-import {routes} from "../../../app.routes";
 
 @Component({
   selector: 'app-edit-meetups',
@@ -16,10 +15,11 @@ import {routes} from "../../../app.routes";
         ReactiveFormsModule
     ],
   templateUrl: './edit-meetups.component.html',
-  styleUrl: './edit-meetups.component.scss'
+  styleUrl: './edit-meetups.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EditMeetupsComponent implements OnDestroy, OnInit{
-
+  private cdr = inject(ChangeDetectorRef);
   private router = inject(Router)
   private meetupService = inject(MeetupsServicesService)
 
@@ -67,9 +67,11 @@ export class EditMeetupsComponent implements OnDestroy, OnInit{
         next: (response) => {
           console.log('Meetup created successfully', response);
           this.router.navigate(['/mymeetups']);
+          this.cdr.markForCheck();
         },
         error: (error) => {
           console.error('Error creating meetup', error);
+          this.cdr.markForCheck();
         }
       })
   }
@@ -82,8 +84,11 @@ export class EditMeetupsComponent implements OnDestroy, OnInit{
     this.deleteMeetup = this.meetupService.HttpDeleteMeetup(meetupId).subscribe({
       next: (res) => {
         this.router.navigate(['/mymeetups'])
+        this.cdr.markForCheck();
       },
-      error: err => console.error(err)
+      error: err => {
+        this.cdr.markForCheck();
+      }
     });
   }
 
@@ -95,6 +100,8 @@ export class EditMeetupsComponent implements OnDestroy, OnInit{
 
   ngOnInit() {
     this.subscribeAllMeetupDataId = this.meetupService.httpMeetupsAll().subscribe((res) => {
+      this.cdr.markForCheck();
+
     const meetup = res.find((meetup) => meetup.id == Number(this.routeMeetupToEditId));
     if (meetup) {
       console.log(meetup);

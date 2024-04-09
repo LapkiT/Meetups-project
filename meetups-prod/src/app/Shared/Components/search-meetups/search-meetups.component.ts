@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {MeetupsServicesService} from "../../Services/MeetupsServices/meetups-services.service";
 
@@ -9,7 +9,8 @@ import {MeetupsServicesService} from "../../Services/MeetupsServices/meetups-ser
     ReactiveFormsModule
   ],
   templateUrl: './search-meetups.component.html',
-  styleUrl: './search-meetups.component.scss'
+  styleUrl: './search-meetups.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchMeetupsComponent {
   public meetupService = inject(MeetupsServicesService);

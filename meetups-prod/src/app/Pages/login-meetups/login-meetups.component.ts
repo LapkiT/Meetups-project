@@ -16,7 +16,7 @@ import {ErrorProcessingService} from "../../Shared/Services/ErrorServices/error-
     ReactiveFormsModule
   ],
   templateUrl: './login-meetups.component.html',
-  styleUrl: './login-meetups.component.scss'
+  styleUrl: './login-meetups.component.scss',
 })
 export class LoginMeetupsComponent implements OnDestroy, OnInit{
   errorService = inject(ErrorProcessingService);
